@@ -45,6 +45,26 @@ function loadData() {
 
     });
 
+    var timeOut=setTimeout(function (){
+        $wikiElem.text("failed to load wiki contents");
+
+    },5000);
+
+    var wikiUrl="https://en.wikipedia.org/w/api.php?action=opensearch&search=san%20jose&format=json&callback=wiki";
+    $.ajax({url:wikiUrl,
+    dataType: "jsonp",
+    jsonp:"callback",}).done(function(data){
+        var list=data[1];
+        for (var i=0; i<list.length;i++){
+            article=list[i];
+            var url="http://en.wikipedia.org/wiki/"+article;
+            $wikiElem.append('<li><a href="'+url+'">'+article+'</a></li>');
+        }
+        clearTimeout(timeOut);
+
+    });
+
+
 
 
     return false;
