@@ -1,4 +1,5 @@
-
+// Oauth 280806954435-ai4170f1nng4shno41phuaql9l67g2kv.apps.googleusercontent.com
+//JO7Y-Z1izcwGSv3IuFnXF3Fe
 // ea39d98ed26c40bf8c5acde1d9f3cec0 API for NY times
 function loadData() {
 
@@ -52,6 +53,7 @@ function loadData() {
 
     var wikiUrl="https://en.wikipedia.org/w/api.php?action=opensearch&search=san%20jose&format=json&callback=wiki";
     $.ajax({url:wikiUrl,
+        //Type of data we expect back is in datatype
     dataType: "jsonp",
     jsonp:"callback",}).done(function(data){
         var list=data[1];
